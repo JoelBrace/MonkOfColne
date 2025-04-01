@@ -1,0 +1,14 @@
+What colour scheme would you like?
+Do you have a logo to use instead of the one I generated?
+What services do you want to advertise? i.e on the carousel (the images rotating below the top navigation) and in more detail, on a specific 'services' page.
+Ideally, we need a high resolution image for each service in the carousel that relates to the specific 'service'.
+Do you have a different headline you'd like to use? i.e. the bit below the 'Welcome to ...'
+Do you have any testimonials from previous clients?
+Do you have a Facebook link already?
+Pretty sure the previous website was created on WordPress. Do you have contact with the person who created it?
+What email does the 'Contact Us' form go to on the current website?
+What details from the current website do you want to include in the new one?
+Are there any new details you'd like to include in the website that are not in the current one?
+Do you have a portfolio of previous jobs, including higher resolution images?
+Generally, people like seeing a face to a name so maybe an 'About Us' section that talks about the business and it's history plus its directors. Should help with lead generation.
+Are there key features you would like?

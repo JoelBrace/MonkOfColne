@@ -35,7 +35,7 @@
     .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s ease; -webkit-tap-highlight-color: transparent; }
     .dot.active { background: #da550f; }
     .content { padding: 20px; }
-    .contact-button { background: #da550f; padding: 20px; margin: 10px 20px; color: white; cursor: pointer; width: 200px; font-size: 20px; text-align:center;}
+    .contact-button { background: #da550f; padding: 20px; margin: 10px 20px; color: white; cursor: pointer; width: 250px; font-size: 20px; text-align:center;}
     .contact-button:hover {
       background: #c9470d;
     }
@@ -231,7 +231,7 @@
     <div class="title">Welcome to Monk of Colne Limited</div>
     <div class="subtitle">An award-winning, established groundworks contractor based in Lancashire, we specialise in tarmacadam surfacing, drainage and block paving for the public and private sectors.</div>
   </div>
-  <div class="contact-button">Contact Us</div>
+  <div class="contact-button">Contact us for a free quote</div>
   <div class="content">
     <p>Portfolio</p>
     <p>Companies we've worked with</p>
@@ -306,7 +306,7 @@
         carouselItems[currentIndex].classList.add('active');
         dotsContainer.children[currentIndex].classList.add('active');
       }, 300);
-      setTimeout(() => { carousel.classList.remove('blur'); }, 600);
+      setTimeout(() => { carousel.classList.remove('blur'); }, 300);
     }
     function nextSlide() {
       let nextIndex = (currentIndex + 1) % totalItems;
