@@ -9,10 +9,10 @@
     nav { position: fixed; top: 0; left: 0; right: 0; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 20px; transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; z-index: 1000; }
     .logo { display: flex; justify-content: center; }
     .logo img { height: 50px; z-index: 1100; }
-    .menu { display: flex; gap: 20px; padding: 10px 20px; background-color: #444; }
-    .menu a { color: white; text-decoration: none; font-size: 20px; font-weight: bold; }
+    .menu { display: flex; gap: 20px; padding: 10px 20px; background-color: #444; -webkit-tap-highlight-color: transparent; }
+    .menu a { color: white; text-decoration: none; font-size: 20px; font-weight: bold; -webkit-tap-highlight-color: transparent; }
     .menu a:hover { color: #da550f; }
-    .burger { display: none; width: 40px; height: 32px; position: relative; cursor: pointer; z-index: 1100; outline: none; }
+    .burger { display: none; width: 40px; height: 32px; position: relative; cursor: pointer; z-index: 1100; outline: none; -webkit-tap-highlight-color: transparent; }
     .burger div { position: absolute; left: 0; width: 100%; height: 4px; background: #da550f; transition: all 0.3s ease; }
     .burger .line1 { top: 0; }
     .burger .line2 { top: 16px; }
@@ -32,13 +32,18 @@
     .carousel-description { font-size: 24px; }
     .carousel.blur { filter: blur(5px); transition: filter 0.3s ease; }
     .carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 2; }
-    .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s ease; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s ease; -webkit-tap-highlight-color: transparent; }
     .dot.active { background: #da550f; }
     .content { padding: 20px; }
     @media (max-width: 768px) {
       .burger { display: flex; }
       .carousel { height: 450px; }
-      .menu { position: fixed; top: 0; left: 0; width: 100%; background-color: #444; flex-direction: column; justify-content: end; align-items: center; gap: 0; opacity: 0; transform: translateY(-10px); pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; z-index: 1050; padding: 0; }
+      .menu { 
+        position: fixed; top: 0; left: 0; width: 100%; background-color: #444; 
+        flex-direction: column; justify-content: end; align-items: center; gap: 0; 
+        opacity: 0; transform: translateY(-10px); pointer-events: none; 
+        transition: opacity 0.3s ease, transform 0.3s ease; z-index: 1050; padding: 0;
+      }
       .menu.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
       .menu a { font-size: 24px; padding: 10px 0; width: 100%; text-align: center; font-weight: normal; color: white; }
       .menu a:nth-child(4) { color: #da550f; }
