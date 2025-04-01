@@ -2,179 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Fast pointer events on mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>Monk of Colne</title>
   <style>
-    /* Global styles */
-    body {
-      margin: 0;
-      font-family: Calibri, sans-serif;
-      line-height: 1.6;
-    }
-    /* Parallax backdrop */
-    .parallax {
-      width: 100%;
-      height: 650px; /* Height adjusted */
-      background-image: url('backdrop.jpg');
-      background-position: center 0;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: relative;
-      display: flex;
-      flex-direction: column; /* Changed to column layout */
-      justify-content: center;
-      align-items: center;
-    }
-    .caption {
-      color: white;
-      font-size: 50px; /* Updated font size */
-      text-align: center;
-      /* 2px outline using text-shadow in color #333 */
-      text-shadow: -2px -2px 0 #333, 2px -2px 0 #333, -2px 2px 0 #333, 2px 2px 0 #333;
-      margin: 5px 20px;
-    }
-
-    /* Navbar styles - taller navbar with centered logo */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center; /* Centers items vertically */
-      padding: 20px;
-      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-      z-index: 1000;
-    }
-
-    .logo img {
-      height: 50px; /* Increased logo size */
-      z-index: 1100;
-    }
-
-    .logo {
-      display:flex;
-      justify-content: center;
-    }
-    .menu {
-      display: flex;
-      gap: 20px;
-      padding: 10px 20px;
-      background-color: #444;
-    }
-    .menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .menu a:hover {
-      color: #da550f;
-    }
-    /* Burger menu styles - bigger burger button */
-    .burger {
-      display: none;
-      width: 40px;
-      height: 32px;
-      position: relative;
-      cursor: pointer;
-      z-index: 1100;
-    }
-    .burger div {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: #da550f;
-      transition: all 0.3s ease;
-    }
-    .burger .line1 {
-      top: 0;
-    }
-    .burger .line2 {
-      top: 16px;
-    }
-    .burger .line3 {
-      top: 32px;
-    }
-    /* Toggle animation into a centered cross */
-    .burger.toggle .line1 {
-      top: 16px;
-      transform: rotate(45deg);
-    }
-    .burger.toggle .line2 {
-      opacity: 0;
-    }
-    .burger.toggle .line3 {
-      top: 16px;
-      transform: rotate(-45deg);
-    }
-
-    /* Content styling */
-    .content {
-      padding: 20px; /* Reduced padding */
-    }
-    /* Mobile responsive styles */
+    body { margin: 0; font-family: Calibri, sans-serif; line-height: 1.6; }
+    nav { position: fixed; top: 0; left: 0; right: 0; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 20px; transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; z-index: 1000; }
+    .logo { display: flex; justify-content: center; }
+    .logo img { height: 50px; z-index: 1100; }
+    .menu { display: flex; gap: 20px; padding: 10px 20px; background-color: #444; }
+    .menu a { color: white; text-decoration: none; font-size: 20px; font-weight: bold; }
+    .menu a:hover { color: #da550f; }
+    .burger { display: none; width: 40px; height: 32px; position: relative; cursor: pointer; z-index: 1100; }
+    .burger div { position: absolute; left: 0; width: 100%; height: 4px; background: #da550f; transition: all 0.3s ease; }
+    .burger .line1 { top: 0; }
+    .burger .line2 { top: 16px; }
+    .burger .line3 { top: 32px; }
+    .burger.toggle .line1 { top: 16px; transform: rotate(45deg); }
+    .burger.toggle .line2 { opacity: 0; }
+    .burger.toggle .line3 { top: 16px; transform: rotate(-45deg); }
+    .carousel { position: relative; width: 100%; height: 650px; overflow: hidden; }
+    .carousel-item { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center 0; background-repeat: no-repeat; opacity: 0; transition: opacity 0.6s ease; }
+    .carousel-item.active { opacity: 1; z-index: 1; }
+    .carousel-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; pointer-events: none; }
+    .carousel-header { font-size: 50px; text-shadow: -2px -2px 0 #333, 2px -2px 0 #333, -2px 2px 0 #333, 2px 2px 0 #333; margin-bottom: 10px; }
+    .carousel-description { font-size: 24px; text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333, 1px 1px 0 #333; }
+    .carousel.blur { filter: blur(5px); transition: filter 0.3s ease; }
+    .carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 2; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s ease; }
+    .dot.active { background: #da550f; }
+    .content { padding: 20px; }
     @media (max-width: 768px) {
-      .burger {
-        display: flex;
-      }
-
-      .parallax {
-        height: 450px;
-      }
-      /* Dropdown menu positioned immediately below the navbar */
-      .menu {
-        position: fixed;
-        top: 0; /* Updated per instructions */
-        left: 0;
-        width: 100%;
-        height: 50vh;
-        background-color: #444;
-        flex-direction: column;
-        justify-content: end;
-        align-items: center;
-        gap: 0;
-        opacity: 0;
-        transform: translateY(-10px);
-        pointer-events: none;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        z-index: 1050;
-        padding: 0;
-      }
-
-      .menu.active {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-      }
-
-      .menu a {
-        font-size: 24px;
-        padding: 10px 0;
-        width: 100%;
-        text-align: center;
-        font-weight: normal;
-        color: white;
-      }
-
-      .menu a:nth-child(4){
-        color: #da550f;
-      }
+      .burger { display: flex; }
+      .parallax { height: 450px; }
+      .menu { position: fixed; top: 0; left: 0; width: 100%; height: 50vh; background-color: #444; flex-direction: column; justify-content: end; align-items: center; gap: 0; opacity: 0; transform: translateY(-10px); pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; z-index: 1050; padding: 0; }
+      .menu.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+      .menu a { font-size: 24px; padding: 10px 0; width: 100%; text-align: center; font-weight: normal; color: white; }
+      .menu a:nth-child(4) { color: #da550f; }
+      .menu a:hover { color: white; }
+      .carousel-header { font-size: 40px; }
+      .carousel-description { font-size: 18px; }
     }
-    
   </style>
 </head>
 <body>
-  
-
   <nav id="navbar">
     <div class="logo">
-      <!-- Logo image from the same directory -->
       <img src="MonkOfColne.png" alt="Logo">
     </div>
     <div class="burger" id="burger">
@@ -190,46 +62,84 @@
       <a href="#">Instagram</a>
     </div>
   </nav>
-
-  <!-- Parallax backdrop with two centered captions -->
-  <div class="parallax">
-    <div class="caption">Built to Last.</div>
-    <div class="caption">Engineered to Lead.</div>
+  <div class="carousel">
+    <div class="carousel-item active" style="background-image: url('slide1.jpg');">
+      <div class="carousel-content">
+        <div class="carousel-header">Slide 1 Header</div>
+        <div class="carousel-description">Slide 1 Description</div>
+      </div>
+    </div>
+    <div class="carousel-item" style="background-image: url('slide2.jpg');">
+      <div class="carousel-content">
+        <div class="carousel-header">Slide 2 Header</div>
+        <div class="carousel-description">Slide 2 Description</div>
+      </div>
+    </div>
+    <div class="carousel-item" style="background-image: url('slide3.jpg');">
+      <div class="carousel-content">
+        <div class="carousel-header">Slide 3 Header</div>
+        <div class="carousel-description">Slide 3 Description</div>
+      </div>
+    </div>
+    <div class="carousel-item" style="background-image: url('slide4.jpg');">
+      <div class="carousel-content">
+        <div class="carousel-header">Slide 4 Header</div>
+        <div class="carousel-description">Slide 4 Description</div>
+      </div>
+    </div>
+    <div class="carousel-item" style="background-image: url('slide5.jpg');">
+      <div class="carousel-content">
+        <div class="carousel-header">Slide 5 Header</div>
+        <div class="carousel-description">Slide 5 Description</div>
+      </div>
+    </div>
+    <div class="carousel-dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+      <span class="dot" data-index="4"></span>
+    </div>
   </div>
-  
   <div class="content">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae sem id lacus maximus feugiat. Sed nec arcu eget nisl tempus molestie. Fusce condimentum sem ut elit varius, non bibendum mi vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer in nunc a lacus porta sodales. Phasellus quis lorem nec nisi suscipit vehicula. Vivamus interdum, elit sed aliquam dapibus, justo libero dignissim justo, vel aliquet ante ligula nec purus.</p>
-    <p>Nulla facilisi. Donec porta condimentum metus, at placerat elit mollis in. Integer sagittis arcu a lacus consequat, vitae facilisis mauris dictum. Morbi malesuada finibus leo, in placerat lectus mollis non.</p>
-    <p>Curabitur condimentum cursus orci, vel aliquam lacus luctus at. Nulla facilisi. Maecenas non dolor urna. Suspendisse potenti. Etiam nec libero ac neque lacinia placerat.</p>
-    <p>Sed posuere velit a sapien mollis, eget cursus ligula ultrices. Mauris tincidunt commodo interdum. Aliquam erat volutpat. Integer aliquet lacinia erat ut fringilla.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae sem id lacus maximus feugiat. Sed nec arcu eget nisl tempus molestie. Fusce condimentum sem ut elit varius, non bibendum mi vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer in nunc a lacus porta sodales. Phasellus quis lorem nec nisi suscipit vehicula. Vivamus interdum, elit sed aliquam dapibus, justo libero dignissim justo, vel aliquet ante ligula nec purus.</p>
-    <p>Nulla facilisi. Donec porta condimentum metus, at placerat elit mollis in. Integer sagittis arcu a lacus consequat, vitae facilisis mauris dictum. Morbi malesuada finibus leo, in placerat lectus mollis non.</p>
-    <p>Curabitur condimentum cursus orci, vel aliquam lacus luctus at. Nulla facilisi. Maecenas non dolor urna. Suspendisse potenti. Etiam nec libero ac neque lacinia placerat.</p>
-    <p>Sed posuere velit a sapien mollis, eget cursus ligula ultrices. Mauris tincidunt commodo interdum. Aliquam erat volutpat. Integer aliquet lacinia erat ut fringilla.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae sem id lacus maximus feugiat. Sed nec arcu eget nisl tempus molestie. Fusce condimentum sem ut elit varius, non bibendum mi vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer in nunc a lacus porta sodales. Phasellus quis lorem nec nisi suscipit vehicula. Vivamus interdum, elit sed aliquam dapibus, justo libero dignissim justo, vel aliquet ante ligula nec purus.</p>
-    <p>Nulla facilisi. Donec porta condimentum metus, at placerat elit mollis in. Integer sagittis arcu a lacus consequat, vitae facilisis mauris dictum. Morbi malesuada finibus leo, in placerat lectus mollis non.</p>
-    <p>Curabitur condimentum cursus orci, vel aliquam lacus luctus at. Nulla facilisi. Maecenas non dolor urna. Suspendisse potenti. Etiam nec libero ac neque lacinia placerat.</p>
-    <p>Sed posuere velit a sapien mollis, eget cursus ligula ultrices. Mauris tincidunt commodo interdum. Aliquam erat volutpat. Integer aliquet lacinia erat ut fringilla.</p>
   </div>
-  
   <script>
     const burger = document.getElementById('burger');
     const menu = document.querySelector('.menu');
     const navbar = document.getElementById('navbar');
-    const parallax = document.querySelector('.parallax');
-    
-    // Toggle burger menu on pointerdown
-    burger.addEventListener('pointerdown', function (e) {
+    const carousel = document.querySelector('.carousel');
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+    const totalItems = carouselItems.length;
+    function showSlide(index) {
+      carousel.classList.add('blur');
+      carouselItems[currentIndex].classList.remove('active');
+      dots[currentIndex].classList.remove('active');
+      currentIndex = index;
+      carouselItems[currentIndex].classList.add('active');
+      dots[currentIndex].classList.add('active');
+      setTimeout(() => { carousel.classList.remove('blur'); }, 300);
+    }
+    function nextSlide() {
+      let nextIndex = (currentIndex + 1) % totalItems;
+      showSlide(nextIndex);
+    }
+    let slideInterval = setInterval(nextSlide, 5000);
+    dots.forEach(dot => {
+      dot.addEventListener('pointerdown', function() {
+        clearInterval(slideInterval);
+        showSlide(parseInt(this.getAttribute('data-index')));
+        slideInterval = setInterval(nextSlide, 5000);
+      });
+    });
+    burger.addEventListener('pointerdown', function(e) {
       e.stopPropagation();
       burger.classList.toggle('toggle');
       menu.classList.toggle('active');
     });
-    
-    // Collapse dropdown when clicking outside burger/menu
-    document.addEventListener('pointerdown', function (e) {
+    document.addEventListener('pointerdown', function(e) {
       if (menu.classList.contains('active')) {
         if (!menu.contains(e.target) && !burger.contains(e.target)) {
           burger.classList.remove('toggle');
@@ -237,10 +147,7 @@
         }
       }
     });
-    
-    // Handle scroll events
-    window.addEventListener('scroll', function () {
-      // Navbar visibility and dropdown collapse
+    window.addEventListener('scroll', function() {
       if (window.pageYOffset < 50) {
         navbar.style.transform = 'translateY(0)';
         navbar.style.opacity = '1';
@@ -250,10 +157,9 @@
         burger.classList.remove('toggle');
         menu.classList.remove('active');
       }
-      
-      // Parallax effect: update background position at 0.3x scroll speed
       let offset = window.pageYOffset;
-      parallax.style.backgroundPositionY = (-offset * 0.3) + 'px';
+      const activeItem = document.querySelector('.carousel-item.active');
+      if(activeItem) { activeItem.style.backgroundPositionY = (-offset * 0.3) + 'px'; }
     });
   </script>
 </body>
