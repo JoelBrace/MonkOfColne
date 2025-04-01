@@ -20,12 +20,14 @@
     .burger.toggle .line1 { top: 16px; transform: rotate(45deg); }
     .burger.toggle .line2 { opacity: 0; }
     .burger.toggle .line3 { top: 16px; transform: rotate(-45deg); }
-    .carousel { position: relative; width: 100%; height: 650px; overflow: hidden; }
+    .carousel { position: relative; width: 100%; height: 650px; overflow: hidden; transition: background-position 0.3s ease; }
     .carousel-item { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center 0; background-repeat: no-repeat; opacity: 0; transition: opacity 0.6s ease; }
     .carousel-item.active { opacity: 1; z-index: 1; }
-    .carousel-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; pointer-events: none; }
-    .carousel-header { font-size: 50px; text-shadow: -2px -2px 0 #333, 2px -2px 0 #333, -2px 2px 0 #333, 2px 2px 0 #333; margin-bottom: 10px; }
-    .carousel-description { font-size: 24px; text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333, 1px 1px 0 #333; }
+    .carousel-content { 
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; pointer-events: none; background-color: rgba(218,85,15,0.5); padding: 20px; display: flex; flex-direction: column; align-items: center;
+    }
+    .carousel-header { font-size: 50px; margin-bottom: 10px; }
+    .carousel-description { font-size: 24px; }
     .carousel.blur { filter: blur(5px); transition: filter 0.3s ease; }
     .carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 2; }
     .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s ease; }
@@ -34,13 +36,14 @@
     @media (max-width: 768px) {
       .burger { display: flex; }
       .carousel { height: 450px; }
-      .menu { position: fixed; top: 0; left: 0; width: 100%; height: 50vh; background-color: #444; flex-direction: column; justify-content: end; align-items: center; gap: 0; opacity: 0; transform: translateY(-10px); pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; z-index: 1050; padding: 0; }
+      .menu { position: fixed; top: 0; left: 0; width: 100%; background-color: #444; flex-direction: column; justify-content: end; align-items: center; gap: 0; opacity: 0; transform: translateY(-10px); pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; z-index: 1050; padding: 0; }
       .menu.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
       .menu a { font-size: 24px; padding: 10px 0; width: 100%; text-align: center; font-weight: normal; color: white; }
       .menu a:nth-child(4) { color: #da550f; }
+      .menu a:first-child { padding-top: 80px; }
       .menu a:hover { color: white; }
-      .carousel-header { font-size: 40px; }
-      .carousel-description { font-size: 18px; }
+      .carousel-header { font-size: 30px; width: max-content;}
+      .carousel-description { font-size: 16px; }
     }
   </style>
 </head>
@@ -62,44 +65,38 @@
       <a href="#">Instagram</a>
     </div>
   </nav>
-  <div class="carousel">
+  <div class="carousel" id="carousel">
     <div class="carousel-item active" style="background-image: url('slide1.jpg');">
       <div class="carousel-content">
-        <div class="carousel-header">Slide 1 Header</div>
-        <div class="carousel-description">Slide 1 Description</div>
+        <div class="carousel-header">Flagging & Setts</div>
+        <div class="carousel-description">Expert installation of high-quality flagstones and setts, creating durable, stylish, and long-lasting surfaces for driveways, paths, and patios.</div>
       </div>
     </div>
     <div class="carousel-item" style="background-image: url('slide2.jpg');">
       <div class="carousel-content">
-        <div class="carousel-header">Slide 2 Header</div>
-        <div class="carousel-description">Slide 2 Description</div>
+        <div class="carousel-header">Drainage & Excavations</div>
+        <div class="carousel-description">Professional drainage solutions and excavations, ensuring efficient water management and solid foundations for all construction projects.</div>
       </div>
     </div>
     <div class="carousel-item" style="background-image: url('slide3.jpg');">
       <div class="carousel-content">
-        <div class="carousel-header">Slide 3 Header</div>
-        <div class="carousel-description">Slide 3 Description</div>
+        <div class="carousel-header">Road & Footpath<br>Construction</div>
+        <div class="carousel-description">High-quality road and footpath construction, delivering durable, safe, and well-engineered surfaces for public and private spaces.</div>
       </div>
     </div>
     <div class="carousel-item" style="background-image: url('slide4.jpg');">
       <div class="carousel-content">
-        <div class="carousel-header">Slide 4 Header</div>
-        <div class="carousel-description">Slide 4 Description</div>
+        <div class="carousel-header">Street Calming Areas</div>
+        <div class="carousel-description">Design and construction of street calming areas, enhancing safety and reducing traffic speed in residential and urban environments.</div>
       </div>
     </div>
     <div class="carousel-item" style="background-image: url('slide5.jpg');">
       <div class="carousel-content">
-        <div class="carousel-header">Slide 5 Header</div>
-        <div class="carousel-description">Slide 5 Description</div>
+        <div class="carousel-header">Tarmacadam</div>
+        <div class="carousel-description">Expert machine or hand-lay tarmacadam services, delivering smooth, durable, and high-quality surfaces for roads, driveways, and pathways.</div>
       </div>
     </div>
-    <div class="carousel-dots">
-      <span class="dot active" data-index="0"></span>
-      <span class="dot" data-index="1"></span>
-      <span class="dot" data-index="2"></span>
-      <span class="dot" data-index="3"></span>
-      <span class="dot" data-index="4"></span>
-    </div>
+    <div class="carousel-dots" id="carousel-dots"></div>
   </div>
   <div class="content">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae sem id lacus maximus feugiat. Sed nec arcu eget nisl tempus molestie. Fusce condimentum sem ut elit varius, non bibendum mi vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
@@ -111,47 +108,77 @@
     const burger = document.getElementById('burger');
     const menu = document.querySelector('.menu');
     const navbar = document.getElementById('navbar');
-    const carousel = document.querySelector('.carousel');
+    const carousel = document.getElementById('carousel');
     const carouselItems = document.querySelectorAll('.carousel-item');
-    const dots = document.querySelectorAll('.dot');
+    const dotsContainer = document.getElementById('carousel-dots');
     let currentIndex = 0;
     const totalItems = carouselItems.length;
+    function createDots() {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalItems; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.setAttribute('data-index', i);
+        dot.addEventListener('pointerdown', function() {
+          clearInterval(slideInterval);
+          showSlide(parseInt(this.getAttribute('data-index')));
+          slideInterval = setInterval(nextSlide, 5000);
+        });
+        dotsContainer.appendChild(dot);
+      }
+    }
     function showSlide(index) {
       carousel.classList.add('blur');
-      carouselItems[currentIndex].classList.remove('active');
-      dots[currentIndex].classList.remove('active');
-      currentIndex = index;
-      carouselItems[currentIndex].classList.add('active');
-      dots[currentIndex].classList.add('active');
-      setTimeout(() => { carousel.classList.remove('blur'); }, 300);
+      setTimeout(() => {
+        carouselItems[currentIndex].classList.remove('active');
+        dotsContainer.children[currentIndex].classList.remove('active');
+        currentIndex = index;
+        carouselItems[currentIndex].classList.add('active');
+        dotsContainer.children[currentIndex].classList.add('active');
+      }, 300);
+      setTimeout(() => { carousel.classList.remove('blur'); }, 600);
     }
     function nextSlide() {
       let nextIndex = (currentIndex + 1) % totalItems;
       showSlide(nextIndex);
     }
+    function prevSlide() {
+      let prevIndex = (currentIndex - 1 + totalItems) % totalItems;
+      showSlide(prevIndex);
+    }
+    createDots();
     let slideInterval = setInterval(nextSlide, 5000);
-    dots.forEach(dot => {
-      dot.addEventListener('pointerdown', function() {
+    let startX = null;
+    carousel.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+    }, {passive: true});
+    carousel.addEventListener('touchend', function(e) {
+      if (startX === null) return;
+      let diffX = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diffX) > 50) {
         clearInterval(slideInterval);
-        showSlide(parseInt(this.getAttribute('data-index')));
+        if(diffX < 0) { nextSlide(); }
+        else { prevSlide(); }
         slideInterval = setInterval(nextSlide, 5000);
-      });
-    });
+      }
+      startX = null;
+    }, {passive: true});
     burger.addEventListener('pointerdown', function(e) {
       e.stopPropagation();
       burger.classList.toggle('toggle');
       menu.classList.toggle('active');
     });
     document.addEventListener('pointerdown', function(e) {
-      if (menu.classList.contains('active')) {
-        if (!menu.contains(e.target) && !burger.contains(e.target)) {
+      if(menu.classList.contains('active')) {
+        if(!menu.contains(e.target) && !burger.contains(e.target)) {
           burger.classList.remove('toggle');
           menu.classList.remove('active');
         }
       }
     });
     window.addEventListener('scroll', function() {
-      if (window.pageYOffset < 50) {
+      if(window.pageYOffset < 50) {
         navbar.style.transform = 'translateY(0)';
         navbar.style.opacity = '1';
       } else {
