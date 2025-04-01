@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>Monk of Colne</title>
   <style>
-    body { margin: 0; font-family: Calibri, sans-serif; line-height: 1.6; }
+    body { margin: 0; font-family: Calibri, sans-serif; line-height: 1.6; display: flex; flex-direction: column; align-items:center;}
     nav { position: fixed; top: 0; left: 0; right: 0; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 20px; transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; z-index: 1000; }
     .logo { display: flex; justify-content: center; }
-    .logo img { height: 50px; z-index: 1100; }
+    .logo img { height: 60px; z-index: 1100; }
     .menu { display: flex; gap: 20px; padding: 10px 20px; background-color: #444; -webkit-tap-highlight-color: transparent; }
     .menu a { color: white; text-decoration: none; font-size: 20px; font-weight: bold; -webkit-tap-highlight-color: transparent; }
     .menu a:hover { color: #da550f; }
@@ -35,9 +35,120 @@
     .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s ease; -webkit-tap-highlight-color: transparent; }
     .dot.active { background: #da550f; }
     .content { padding: 20px; }
+    .contact-button { background: #da550f; padding: 20px; margin: 10px 20px; color: white; cursor: pointer; width: 200px; font-size: 20px; text-align:center;}
+    .contact-button:hover {
+      background: #c9470d;
+    }
+
+    .footer {
+      display: flex;
+      flex-direction: column;
+      align-items:center;
+      padding-bottom: 5px;
+    }
+
+    .accredited {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .accredited img {
+      width: 80px;
+    }
+
+    .social-media {
+      display: flex;
+      gap: 10px;
+    }
+
+    .contact-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+    }
+
+    .contact-form,
+    .contact-map {
+      flex: 1;
+      margin: 10px;
+    }
+
+    .contact-form {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    .contact-form h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-form label {
+      font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .contact-form button {
+      padding: 10px;
+      background-color: #da550f;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .contact-form button:hover {
+      background-color: #c9470d;
+    }
+
+    .headline {
+      padding: 20px 10px;
+    }
+
+    .headline > .title {
+      font-size: 40px;
+      text-align: center;
+    }
+
+    .headline > .subtitle {
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 450px;
+      border: 0;
+      box-sizing: border-box;
+    }
     @media (max-width: 768px) {
       .burger { display: flex; }
       .carousel { height: 450px; }
+      .logo img { height: 50px; }
       .menu { 
         position: fixed; top: 0; left: 0; width: 100%; background-color: #444; 
         flex-direction: column; justify-content: end; align-items: center; gap: 0; 
@@ -47,12 +158,21 @@
       .menu.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
       .menu a { font-size: 24px; padding: 10px 0; width: 100%; text-align: center; font-weight: normal; color: white; }
       .menu a:nth-child(4) { color: #da550f; }
-      .menu a:nth-child(4):focus { color: white; }
-      .menu a:first-child { margin-top: 80px; }
+      .menu a:first-child { padding-top: 80px; }
       .menu a:hover { color: white; }
-      .menu a:focus { color: #da550f; }
       .carousel-header { font-size: 30px; width: max-content; }
       .carousel-description { font-size: 16px; }
+      
+      .contact-section {
+        flex-direction: column;
+      }
+      .contact-form,
+      .contact-map {
+        width: 80%;
+      }
+      .contact-map iframe {
+        height: 300px;
+      }
     }
   </style>
 </head>
@@ -71,7 +191,7 @@
       <a href="#">Services</a>
       <a href="#">Quality Assurance</a>
       <a href="#">Contact Us</a>
-      <a href="#">Instagram</a>
+      <a href="#">Social Media</a>
     </div>
   </nav>
   <div class="carousel" id="carousel">
@@ -107,11 +227,50 @@
     </div>
     <div class="carousel-dots" id="carousel-dots"></div>
   </div>
+  <div class="headline">
+    <div class="title">Welcome to Monk of Colne Limited</div>
+    <div class="subtitle">An award-winning, established groundworks contractor based in Lancashire, we specialise in tarmacadam surfacing, drainage and block paving for the public and private sectors.</div>
+  </div>
+  <div class="contact-button">Contact Us</div>
   <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae sem id lacus maximus feugiat. Sed nec arcu eget nisl tempus molestie. Fusce condimentum sem ut elit varius, non bibendum mi vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae sem id lacus maximus feugiat. Sed nec arcu eget nisl tempus molestie. Fusce condimentum sem ut elit varius, non bibendum mi vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae sem id lacus maximus feugiat. Sed nec arcu eget nisl tempus molestie. Fusce condimentum sem ut elit varius, non bibendum mi vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae sem id lacus maximus feugiat. Sed nec arcu eget nisl tempus molestie. Fusce condimentum sem ut elit varius, non bibendum mi vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+    <p>Portfolio</p>
+    <p>Companies we've worked with</p>
+    <p>Testimonials</p>
+  </div>
+  <div class="contact-section">
+    <div class="contact-form">
+      <h2>Contact Us</h2>
+      <form>
+        <label for="name">Your Name*</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Your Email*</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Your Message*</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <div class="contact-map">
+      <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/search?q=5%20Sun%20St%2C%20Colne%20BB8%200JJ%2C%20UK&key=AIzaSyDgh74fyIKHWqivHHA8jGVUnM419wnms5o"></iframe>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <div class="accredited">
+      <img src="construction-line.png"></img>
+      <img src="safe-trader-scheme.png"></img>
+      <img src="chas.png"></img>
+    </div>
+    <div>01282 863 122</div>
+    <div>5 Sun Street, Colne, BB8 0JJ</div>
+    <div class="social-media">
+      <a href="https://www.facebook.com"><img src="Facebook.avif"></img></a>
+      <a href="https://www.instagram.com"><img src="Instagram.avif"></img></a>
+    </div>
+    <div>Company Reg 01024339. ©2025 by Monk of Colne.</div>
   </div>
   <script>
     const burger = document.getElementById('burger');
