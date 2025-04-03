@@ -145,6 +145,95 @@
       border: 0;
       box-sizing: border-box;
     }
+
+
+
+.quote-carousel {
+  width:100%;
+  height: 250px;
+  overflow: hidden;
+  transform:translateX(0);
+}
+
+.quote {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translate(100%, -50%) scale(0.6);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.35, 1), opacity 0.5s ease-out;
+  display: block;
+  margin: 8em auto 4em;
+  max-width: 18em;
+  min-width: 12em;
+  padding: 1em;
+
+  -webkit-user-select: none; 
+  -moz-user-select: none;    
+  -ms-user-select: none;     
+  user-select: none;        
+}
+
+
+.quote.previous {
+  transform: translate(-150%, -50%) scale(0.8);
+  opacity: 0.5;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.35, 1), opacity 1s 0.4s ease-out;
+}
+
+
+.quote.current {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+
+.quote.next {
+  transform: translate(50%, -50%) scale(0.8);
+  opacity: 0.5;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.35, 1), opacity 1s 0.6s ease-out;
+}
+
+
+.quote.remove-left {
+  transform: translate(-100%, -50%) scale(0.8);
+}
+
+.quote.place-left {
+  transform: translate(-100%, -50%) scale(0.6);
+  transition: none;
+}
+
+
+.quote-text-container {
+  text-align: center;
+}
+
+
+.quote-text {
+  position: relative;
+  display: inline-block;
+}
+
+.quote-text::before {
+  content: '"';
+  color: #da550f;
+  margin-right: 0.2em;
+}
+
+.quote-text::after {
+  content: '"';
+  color: #da550f;
+  margin-left: 0.2em;
+}
+
+.quotee {
+  color: #da550f;
+  margin-top: 0.5em;
+}
+
+
+
     @media (max-width: 768px) {
       .burger { display: flex; }
       .carousel { height: 450px; }
@@ -235,8 +324,50 @@
   <div class="content">
     <p>Portfolio</p>
     <p>Companies we've worked with</p>
-    <p>Testimonials</p>
   </div>
+  <div class="quote-carousel" id="quotes-carousel">
+    <div class="quote previous">
+      <div class="quote-text-container">
+        <div class="quote-text">
+          Seen there work first hand and thay don't cut any corners. It's top quality work and thay graft hard. Well recommend.
+        </div>
+        <div class="quotee">Frank Clarky</div>
+      </div>
+    </div>
+    <div class="quote current">
+      <div class="quote-text-container">
+        <div class="quote-text">
+          John and his team did a first class job doing my driveway. His team were hardworking, friendly and very accommodating. Job was clean and completed to a very high standard.
+        </div>
+        <div class="quotee">Raz</div>
+      </div>
+    </div>
+    <div class="quote next">
+      <div class="quote-text-container">
+        <div class="quote-text">
+          Great company. Excellent foundations and brickwork, cleared the site, very tidy. Always communicated and came up with best way to achieve what we wanted. Would highly recommend.
+        </div>
+        <div class="quotee">Andrew Turton</div>
+      </div>
+    </div>
+    <div class="quote">
+      <div class="quote-text-container">
+        <div class="quote-text">
+          Fantastic service! Professional team, on-time delivery, and excellent quality. They handled our commercial project flawlessly. Highly recommend for complex engineering needs!
+        </div>
+        <div class="quotee">Olivia Chambers</div>
+      </div>
+    </div>
+    <div class="quote">
+      <div class="quote-text-container">
+        <div class="quote-text">
+          Great experience! Efficient, reliable, and innovative solutions. They saved us time and money while maintaining top-notch quality. Will hire again!
+        </div>
+        <div class="quotee">Matthew Fox</div>
+      </div>
+    </div>
+  </div>
+  
   <div class="contact-section">
     <div class="contact-form">
       <h2>Contact Us</h2>
@@ -360,6 +491,127 @@
       const activeItem = document.querySelector('.carousel-item.active');
       if(activeItem) { activeItem.style.backgroundPositionY = (-offset * 0.3) + 'px'; }
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+  var carousel = document.getElementById('quotes-carousel');
+  
+  // Event delegation: Listen for clicks on elements with .next or .previous classes.
+  carousel.addEventListener('click', function(e) {
+    var nextBtn = e.target.closest('.next');
+    var prevBtn = e.target.closest('.previous');
+    if (nextBtn) {
+      showNextQuoteClick();
+    } else if (prevBtn) {
+      showPreviousQuoteClick();
+    }
+  });
+
+  window.carouselRunning = true;
+  window.restartingCarousel = null;
+
+  // Automatically cycle through quotes every 4 seconds
+  setInterval(function() {
+    if (window.carouselRunning) {
+      showNextQuote();
+    }
+  }, 4000);
+});
+
+function showNextQuoteClick() {
+  window.carouselRunning = false;
+  clearTimeout(window.restartingCarousel);
+  showNextQuote();
+  restartAutomatic();
+}
+
+function showPreviousQuoteClick() {
+  window.carouselRunning = false;
+  clearTimeout(window.restartingCarousel);
+  showPreviousQuote();
+  restartAutomatic();
+}
+
+function restartAutomatic() {
+  clearTimeout(window.restartingCarousel);
+  window.restartingCarousel = setTimeout(function() {
+    window.carouselRunning = true;
+  }, 7000);
+}
+
+function showNextQuote() {
+  var allQuotes = document.querySelectorAll('#quotes-carousel .quote');
+  var current = document.querySelector('#quotes-carousel .current');
+  var previous = document.querySelector('#quotes-carousel .previous');
+  var next = document.querySelector('#quotes-carousel .next');
+
+  if (current) {
+    current.classList.remove('current');
+    current.classList.add('previous');
+  }
+  if (next) {
+    next.classList.remove('next');
+    next.classList.add('current');
+  }
+  if (previous) {
+    previous.classList.remove('previous');
+    previous.classList.add('remove-left');
+    setTimeout(function() {
+      previous.classList.remove('remove-left');
+    }, 1000);
+  }
+  
+  // Determine which quote should now be the "next" one.
+  allQuotes.forEach(function(item, index) {
+    if (item.classList.contains('current')) {
+      if (allQuotes[index + 1]) {
+        allQuotes[index + 1].classList.add('next');
+        allQuotes[index + 1].classList.remove('remove-left');
+      } else {
+        allQuotes[0].classList.add('next');
+        allQuotes[0].classList.remove('remove-left');
+      }
+    }
+  });
+}
+
+function showPreviousQuote() {
+  var allQuotes = document.querySelectorAll('#quotes-carousel .quote');
+  var current = document.querySelector('#quotes-carousel .current');
+  var previous = document.querySelector('#quotes-carousel .previous');
+  var next = document.querySelector('#quotes-carousel .next');
+
+  if (current) {
+    current.classList.remove('current');
+    current.classList.add('next');
+  }
+  if (previous) {
+    previous.classList.remove('previous');
+    previous.classList.add('current');
+  }
+  if (next) {
+    next.classList.remove('next');
+  }
+  
+  // Determine which quote should now be the previous one.
+  allQuotes.forEach(function(item, index) {
+    if (item.classList.contains('current')) {
+      if (allQuotes[index - 1]) {
+        allQuotes[index - 1].classList.add('place-left');
+        setTimeout(function() {
+          allQuotes[index - 1].classList.add('previous');
+          allQuotes[index - 1].classList.remove('place-left');
+        }, 10);
+      } else {
+        allQuotes[allQuotes.length - 1].classList.add('place-left');
+        setTimeout(function() {
+          allQuotes[allQuotes.length - 1].classList.add('previous');
+          allQuotes[allQuotes.length - 1].classList.remove('place-left');
+        }, 10);
+      }
+    }
+  });
+}
+
   </script>
 </body>
 </html>
