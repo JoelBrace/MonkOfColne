@@ -12,6 +12,8 @@
     .menu { display: flex; gap: 20px; padding: 10px 20px; background-color: #444; -webkit-tap-highlight-color: transparent; }
     .menu a { color: white; text-decoration: none; font-size: 20px; font-weight: bold; -webkit-tap-highlight-color: transparent; }
     .menu a:hover { color: #da550f; }
+    .menu a:nth-child(4):hover { color: white; }
+    .menu a:nth-child(4) { color: #da550f; }
     .burger { display: none; width: 40px; height: 32px; position: relative; cursor: pointer; z-index: 1100; outline: none; -webkit-tap-highlight-color: transparent; }
     .burger div { position: absolute; left: 0; width: 100%; height: 4px; background: #da550f; transition: all 0.3s ease; }
     .burger .line1 { top: 0; }
@@ -34,11 +36,13 @@
     .carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 2; }
     .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s ease; -webkit-tap-highlight-color: transparent; }
     .dot.active { background: #da550f; }
-    .content { padding: 20px; }
-    .contact-button { background: #da550f; padding: 20px; margin: 10px 20px; color: white; cursor: pointer; width: 250px; font-size: 20px; text-align:center;}
+    /* .content { padding: 20px; } */
+    .contact-button { background: #da550f; padding: 20px; margin: 20px 20px; color: white; cursor: pointer; width: 250px; font-size: 20px; text-align:center;}
     .contact-button:hover {
       background: #c9470d;
     }
+
+    
 
     .footer {
       display: flex;
@@ -72,7 +76,7 @@
     .contact-form,
     .contact-map {
       flex: 1;
-      margin: 10px;
+      margin: 40px;
     }
 
     .contact-form {
@@ -126,7 +130,7 @@
     }
 
     .headline {
-      padding: 20px 10px;
+      padding: 0 10px;
     }
 
     .headline > .title {
@@ -229,7 +233,19 @@
   margin-top: 0.5em;
 }
 
+.divider {
+  height: 3px;
+  width: 30%;
+  background-color: #da550f;;
+}
 
+.mar-t10 {
+  margin-top: 10px;
+}
+
+.mar-b10 {
+  margin-bottom: 10px;
+}
 
     @media (max-width: 768px) {
       .burger { display: flex; }
@@ -243,7 +259,6 @@
       }
       .menu.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
       .menu a { font-size: 24px; padding: 10px 0; width: 100%; text-align: center; font-weight: normal; color: white; }
-      .menu a:nth-child(4) { color: #da550f; }
       .menu a:first-child { padding-top: 80px; }
       .menu a:hover { color: white; }
       .carousel-header { font-size: 30px; width: max-content; }
@@ -313,20 +328,21 @@
     </div>
     <div class="carousel-dots" id="carousel-dots"></div>
   </div>
+  <div class="contact-button">Contact us for a free quote</div>
   <div class="headline">
     <div class="title">Welcome to Monk of Colne Limited</div>
     <div class="subtitle">An award-winning, established groundworks contractor based in Lancashire, we specialise in tarmacadam surfacing, drainage and block paving for the public and private sectors.</div>
   </div>
-  <div class="contact-button">Contact us for a free quote</div>
   <div class="content">
     <p>Portfolio</p>
     <p>Companies we've worked with</p>
   </div>
+  <div class="divider mar-t10"></div>
   <div class="quote-carousel" id="quotes-carousel">
     <div class="quote previous">
       <div class="quote-text-container">
         <div class="quote-text">
-          Seen there work first hand and thay don't cut any corners. It's top quality work and thay graft hard. Well recommend.
+          Seen there work first hand and they don't cut any corners. It's top quality work and thay graft hard. Well recommend.
         </div>
         <div class="quotee">Frank Clarky</div>
       </div>
@@ -364,7 +380,7 @@
       </div>
     </div>
   </div>
-  
+  <div class="divider mar-b10"></div>
   <div class="contact-section">
     <div class="contact-form">
       <h2>Contact Us</h2>
