@@ -36,13 +36,10 @@
     .carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 2; }
     .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s ease; -webkit-tap-highlight-color: transparent; }
     .dot.active { background: #da550f; }
-    /* .content { padding: 20px; } */
     .contact-button { background: #da550f; padding: 20px; margin: 20px 20px; color: white; cursor: pointer; width: 250px; font-size: 20px; text-align:center;}
     .contact-button:hover {
       background: #c9470d;
     }
-
-    
 
     .footer {
       display: flex;
@@ -450,7 +447,7 @@
         dotsContainer.children[currentIndex].classList.remove('active');
         currentIndex = index;
         carouselItems[currentIndex].classList.add('active');
-carouselItems[currentIndex].style.backgroundPositionY = 0;
+        carouselItems[currentIndex].style.backgroundPositionY = getYOffset();
         dotsContainer.children[currentIndex].classList.add('active');
       }, 150);
       setTimeout(() => { carousel.classList.remove('blur'); }, 300);
@@ -462,6 +459,11 @@ carouselItems[currentIndex].style.backgroundPositionY = 0;
     function prevSlide() {
       let prevIndex = (currentIndex - 1 + totalItems) % totalItems;
       showSlide(prevIndex);
+    }
+
+    function getYOffset() {
+      let offset = window.pageYOffset;
+      return (-offset * 0.3) + 'px';
     }
     createDots();
     let slideInterval = setInterval(nextSlide, 5000);
@@ -503,9 +505,8 @@ carouselItems[currentIndex].style.backgroundPositionY = 0;
         burger.classList.remove('toggle');
         menu.classList.remove('active');
       }
-      let offset = window.pageYOffset;
       const activeItem = document.querySelector('.carousel-item.active');
-      if(activeItem) { activeItem.style.backgroundPositionY = (-offset * 0.3) + 'px'; }
+      if(activeItem) { activeItem.style.backgroundPositionY = getYOffset(); }
     });
 
     document.addEventListener('DOMContentLoaded', function() {
