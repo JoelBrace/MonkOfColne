@@ -32,12 +32,62 @@ window.addEventListener('scroll', function() {
   }
 });
 
-document.getElementById('nav-contact-us').addEventListener('click', function() {
-  if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
-    document.getElementById('quotes-carousel').scrollIntoView({
-      behavior: 'smooth'
-    });
-  } else {
-    window.location.href = 'index.html#contact-us';
+document.addEventListener('DOMContentLoaded', function() {
+  var fader = document.getElementById('fader');
+  if (window.AnimationEvent) {
+    fader.classList.add('fade-out');
   }
+
+  function handleFadeNavigation(event, callback) {
+    if (window.AnimationEvent) {
+      event.preventDefault();
+      fader.classList.add('fade-in');
+      var listener = function() {
+        fader.removeEventListener('animationend', listener);
+        callback();
+      };
+      fader.addEventListener('animationend', listener);
+    } else {
+      callback();
+    }
+  }
+
+  var navContactUs = document.getElementById('nav-contact-us');
+  navContactUs.addEventListener('click', function(event) {
+    if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+      document.getElementById('quotes-carousel').scrollIntoView({
+        behavior: 'smooth'
+      });
+    } else {
+      handleFadeNavigation(event, function() {
+        window.location.href = 'index.html#contact-us';
+      });
+    }
+  });
+
+  var anchors = document.getElementsByTagName('a');
+  for (var idx = 0; idx < anchors.length; idx++) {
+    if (anchors[idx].id === "nav-contact-us") {
+      continue;
+    }
+    
+    if (anchors[idx].hostname === window.location.hostname &&
+       (anchors[idx].pathname !== window.location.pathname || anchors[idx].hash)) {
+      anchors[idx].addEventListener('click', function(event) {
+        var anchor = event.currentTarget;
+        handleFadeNavigation(event, function() {
+          window.location = anchor.href;
+        });
+      });
+    }
+  }
+});
+
+
+window.addEventListener('pageshow', function (event) {
+  if (!event.persisted) {
+    return;
+  }
+  var fader = document.getElementById('fader');
+  fader.classList.remove('fade-in');
 });
