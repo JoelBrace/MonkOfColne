@@ -280,7 +280,7 @@
       <a href="#">Home</a>
       <a href="#">Services</a>
       <a href="#">Quality Assurance</a>
-      <a href="#">Contact Us</a>
+      <a id="nav-contact-us" href="#">Contact Us</a>
       <a href="#">Social Media</a>
     </div>
   </nav>
@@ -317,7 +317,7 @@
     </div>
     <div class="carousel-dots" id="carousel-dots"></div>
   </div>
-  <div class="contact-button">Contact us for a free quote</div>
+  <div id="contactButton" class="contact-button">Contact us for a free quote</div>
   <div class="headline">
     <div class="title">Welcome to Monk of Colne Limited</div>
     <div class="subtitle">An award-winning, established groundworks contractor based in Lancashire, we specialise in tarmacadam surfacing, drainage and block paving for the public and private sectors.</div>
@@ -628,6 +628,32 @@ function showPreviousQuote() {
     }
   });
 }
+
+document.getElementById('contactButton').addEventListener('click', function() {
+  document.getElementById('quotes-carousel').scrollIntoView({ behavior: 'smooth' });
+});
+
+document.getElementById('nav-contact-us').addEventListener('click', function() {
+  // Check if we're already on the index page
+  if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+    // If so, just scroll to the target element smoothly.
+    document.getElementById('quotes-carousel').scrollIntoView({
+      behavior: 'smooth'
+    });
+  } else {
+    // Otherwise, navigate to the index page with a hash.
+    window.location.href = '/#contact-us';
+  }
+});
+
+window.addEventListener('DOMContentLoaded', function() {
+  if (window.location.hash === '#contact-us') {
+    document.getElementById('quotes-carousel').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+});
+
 
   </script>
 </body>
