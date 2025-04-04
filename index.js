@@ -51,6 +51,11 @@ function getYOffset() {
   return (-offset * 0.3) + 'px';
 }
 
+window.addEventListener('scroll', function() {
+  const activeItem = document.querySelector('.carousel-item.active');
+  if(activeItem) { activeItem.style.backgroundPositionY = getYOffset(); }
+});
+
 createDots();
 let slideInterval = setInterval(nextSlide, 5000);
 
