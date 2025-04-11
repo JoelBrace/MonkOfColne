@@ -194,7 +194,7 @@
     opacity: 0;
     transition: transform 1s cubic-bezier(0.77, 0, 0.35, 1), opacity 0.5s ease-out;
     display: block;
-    margin: 8em auto 4em;
+    margin: 8.5em auto 4em;
     max-width: 18em;
     min-width: 12em;
     padding: 1em;
