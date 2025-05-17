@@ -18,3 +18,4 @@ Is the main goal of the website lead generation? Showcasing projects?
 Who is your target audience? Homeowners? Government? Real estate developers? etc
 How often do you imagine updating parts of the website? What parts would need updating? Do you need the ability to update them yourself?
 Have you had any existing feedback on the website? Were there any parts people specifically wanted to improve?
+What areas do you service?
