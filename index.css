@@ -35,7 +35,7 @@
     color: white;
     text-align: center;
     pointer-events: none;
-    background-color: rgba(218,85,15,0.5);
+    background-color: rgba(126, 97, 69, 0.65);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -77,11 +77,11 @@
   }
   
   .dot.active {
-    background: #da550f;
+    background: var(--primary-color);
   }
   
   .contact-button {
-    background: #da550f;
+    background: var(--primary-color);
     padding: 20px;
     margin: 20px 20px;
     color: white;
@@ -92,7 +92,7 @@
   }
   
   .contact-button:hover {
-    background: #c9470d;
+    background: var(--accent-color);
   }
   
   .headline {
@@ -161,7 +161,7 @@
   
   .contact-form button {
     padding: 10px;
-    background-color: #da550f;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -169,7 +169,7 @@
   }
   
   .contact-form button:hover {
-    background-color: #c9470d;
+    background-color: var(--accent-color);
   }
   
   .contact-map iframe {
@@ -237,18 +237,18 @@
   }
   
   .orange {
-    color: #da550f;
+    color: var(--primary-color);
   }
   
   .quotee {
-    color: #da550f;
+    color: var(--primary-color);
     margin-top: 0.5em;
   }
   
   .divider {
     height: 3px;
     width: 30%;
-    background-color: #da550f;
+    background-color: var(--primary-color);
   }
   
   .mar-t10 {
