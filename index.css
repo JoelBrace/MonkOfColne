@@ -1,10 +1,6 @@
 /* index.css */
 /* Styles for the carousel, quote carousel, contact section, headline, and other page content */
 
-body {
-  /* background-color: var(--light-color); */
-}
-
 .carousel {
     position: relative;
     width: 100%;

@@ -20,10 +20,6 @@ html,body {
     flex:1;
 }
 
-.navbar {
-    background-color: var(--primary-color);
-}
-
 .title {
     font-size: 2rem;
 }

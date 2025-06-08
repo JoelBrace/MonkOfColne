@@ -19,6 +19,10 @@
   text-decoration: none;
 }
 
+.navbar {
+    background-color: var(--primary-color);
+}
+
 .contact-button:hover {
   background: var(--accent-color);
 }
