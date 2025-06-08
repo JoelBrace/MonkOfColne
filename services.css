@@ -25,11 +25,11 @@ html,body {
 }
 
 .title {
-    font-size: 40px;
+    font-size: 2rem;
 }
 
 .subtitle {
-  font-size:20px;
+  font-size:1rem;
 }
 
 .services-container {
@@ -117,4 +117,11 @@ html,body {
 .service-item:hover .hidden {
   opacity: 1;
   transition-delay: 0.3s;
+}
+
+
+@media (max-width: 768px) {
+  /* .heading {
+    padding: 15px;
+  } */
 }
