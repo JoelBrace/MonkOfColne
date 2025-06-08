@@ -87,20 +87,6 @@
     background: var(--primary-color);
   }
   
-  .contact-button {
-    background: var(--primary-color);
-    padding: 20px;
-    margin: 20px 20px;
-    color: white;
-    cursor: pointer;
-    width: 250px;
-    font-size: 20px;
-    text-align: center;
-  }
-  
-  .contact-button:hover {
-    background: var(--accent-color);
-  }
   
   .headline {
     padding: 0 10px;

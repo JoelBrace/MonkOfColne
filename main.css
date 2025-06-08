@@ -4,6 +4,23 @@
 :root {
   --primary-color: rgb(196, 164, 132);
   --accent-color: rgb(148, 117, 85);
+  --light-color: rgb(223, 197, 172);
+}
+
+.contact-button {
+  background: var(--primary-color);
+  padding: 20px;
+  margin: 20px 20px;
+  color: white;
+  cursor: pointer;
+  width: 250px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.contact-button:hover {
+  background: var(--accent-color);
 }
 
 #fader {
