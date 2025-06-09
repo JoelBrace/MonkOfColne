@@ -7,6 +7,10 @@
   --light-color: rgb(223, 197, 172);
 }
 
+body {
+  background-color: rgba(237,237,234);
+}
+
 .contact-button {
   background: var(--primary-color);
   padding: 20px;
@@ -19,9 +23,7 @@
   text-decoration: none;
 }
 
-.navbar {
-    background-color: var(--primary-color);
-}
+
 
 .contact-button:hover {
   background: var(--accent-color);

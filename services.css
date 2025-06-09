@@ -5,16 +5,19 @@ html,body {
     margin: 0;
 }
 
+.navbar {
+    background-color: var(--primary-color);
+}
+
 .heading {
   background-color: var(--light-color);
-  padding: 30px;
+  padding: 120px 30px 30px 30px;
   display: flex;
   flex-direction: column;
   align-items:center;
 }
 
 .container {
-    margin-top: 90px;
     display: flex;
     flex-direction: column;
     flex:1;

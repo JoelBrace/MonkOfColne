@@ -9,6 +9,19 @@
     transition: background-position 0.3s ease;
   }
 
+.burger-bg {
+  position: relative;
+  left: -12px;
+  top: -12px;
+  min-width: 64px;
+  min-height: 60px;
+  background-color: #444;
+}
+
+.burger div {
+    background: rgba(237,237,234);
+  }
+
 .content {
   background-color: var(--light-color);
   width: 100%;
