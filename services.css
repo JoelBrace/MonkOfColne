@@ -17,6 +17,8 @@ html,body {
   align-items:center;
 }
 
+
+
   .read-more {
   background: #fff;
   color: #000;
@@ -102,6 +104,13 @@ html,body {
   flex-direction: column;
   justify-content: space-between;
   height: 85%;
+}
+
+.hidden > p {
+  -webkit-user-select: none; /* Chrome, Safari, newer Edge */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Standard syntax */
 }
 
 .hidden > a {
