@@ -8,6 +8,10 @@
     margin: 20px;
 }
 
+.main-description > h3 {
+    margin: 0;
+}
+
 .headline {
   display: flex;
   flex-direction: column;
