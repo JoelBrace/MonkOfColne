@@ -5,10 +5,11 @@
   --primary-color: rgb(196, 164, 132);
   --accent-color: rgb(148, 117, 85);
   --light-color: rgb(223, 197, 172);
+  --cream-color: rgba(237,237,234);
 }
 
 body {
-  background-color: rgba(237,237,234);
+  background-color: var(--cream-color);
 }
 
 .contact-button {
