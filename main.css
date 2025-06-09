@@ -134,13 +134,24 @@ body {
     outline: none;
     -webkit-tap-highlight-color: transparent;
   }
+
+  
+.burger-bg {
+  position: relative;
+  left: -12px;
+  top: -12px;
+  min-width: 64px;
+  min-height: 60px;
+  background-color: #444;
+}
   
   .burger div {
     position: absolute;
     left: 0;
     width: 100%;
     height: 4px;
-    background: var(--accent-color);
+        background: var(--cream-color);
+
     transition: all 0.3s ease;
   }
   
