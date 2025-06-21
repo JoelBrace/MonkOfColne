@@ -4,12 +4,13 @@
 :root {
   --primary-color: rgb(196, 164, 132);
   --accent-color: rgb(148, 117, 85);
-  --light-color: rgb(223, 197, 172);
-  --cream-color: rgba(237,237,234);
+  --light-color: rgb(228, 208, 191);
+  --cream-color: white;
 }
 
 body {
   background-color: var(--cream-color);
+  color: rgb(92, 60, 27);
 }
 
 .contact-button {
