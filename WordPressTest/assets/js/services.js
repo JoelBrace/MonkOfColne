@@ -192,15 +192,3 @@ function showPreviousQuote() {
     }
   });
 }
-
-document.getElementById('contactButton').addEventListener('click', function() {
-  document.getElementById('quotes-carousel').scrollIntoView({ behavior: 'smooth' });
-});
-
-window.addEventListener('DOMContentLoaded', function() {
-  if (window.location.hash === '#contact-us') {
-    document.getElementById('quotes-carousel').scrollIntoView({
-      behavior: 'smooth'
-    });
-  }
-});

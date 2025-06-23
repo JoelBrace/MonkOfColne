@@ -194,6 +194,10 @@ function showPreviousQuote() {
   });
 }
 
+document.getElementById('contactButton').addEventListener('click', function() {
+  document.getElementById('quotes-carousel').scrollIntoView({ behavior: 'smooth' });
+});
+
 window.addEventListener('DOMContentLoaded', () => {
   const logo = document.getElementById('logoBox');
 
