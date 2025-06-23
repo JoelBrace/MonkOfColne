@@ -95,13 +95,7 @@ body {
     z-index: 1101;
     background-color: rgb(255, 253, 208);
     padding: 0 5px;
-    transform: scale(1);
     transform-origin: top left;
-    transition: transform 1250ms ease 750ms;
-  }
-
-  .homepage-scale {
-    transform: scale(3.5);
   }
 
   .logo img {
@@ -160,6 +154,7 @@ body {
     width: 40px;
     height: 32px;
     top: 12px;
+    right: 12px;
     position: relative;
     cursor: pointer;
     z-index: 1100;
@@ -302,9 +297,5 @@ body {
     .footer-item {
       margin: 0;
     }
-
-    .homepage-scale {
-    transform: scale(2.5);
-  }
   }
   

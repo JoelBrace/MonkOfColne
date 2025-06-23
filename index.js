@@ -194,22 +194,33 @@ function showPreviousQuote() {
   });
 }
 
-document.getElementById('contactButton').addEventListener('click', function() {
-  document.getElementById('quotes-carousel').scrollIntoView({ behavior: 'smooth' });
-});
-
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', () => {
   const logo = document.getElementById('logoBox');
-  
+
   if (window.location.hash === '#contact-us') {
-    logo.style.transition = 'none'; 
-    logo.style.transform = 'scale(1)';
-    document.getElementById('quotes-carousel').scrollIntoView({
-      behavior: 'smooth'
-    });
+    logo.style.transition = 'none';
+    logo.style.transform    = 'scale(1)';
+    document.getElementById('quotes-carousel').scrollIntoView({ behavior: 'smooth' });
+    return;
   }
 
+  logo.style.transform    = 'scale(1)';
+  logo.style.transition   = 'none';            // disable transitions for the jump
+
+  const container       = logo.parentElement;
+  const availableWidth  = container.clientWidth - 40;
+  const naturalWidth    = logo.getBoundingClientRect().width;
+  var scaleFactor     = availableWidth / naturalWidth;
+
+  if(container.clientWidth > 768)
+    scaleFactor = scaleFactor/2.0;
+
+  logo.style.transform  = `scale(${scaleFactor})`;
+
+  void logo.offsetWidth;
+
+  logo.style.transition = 'transform 1250ms ease 750ms';
   requestAnimationFrame(() => {
-        logo.classList.remove('homepage-scale');
-      });
+    logo.style.transform = 'scale(1)';
+  });
 });
