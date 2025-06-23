@@ -199,9 +199,17 @@ document.getElementById('contactButton').addEventListener('click', function() {
 });
 
 window.addEventListener('DOMContentLoaded', function() {
+  const logo = document.getElementById('logoBox');
+  
   if (window.location.hash === '#contact-us') {
+    logo.style.transition = 'none'; 
+    logo.style.transform = 'scale(1)';
     document.getElementById('quotes-carousel').scrollIntoView({
       behavior: 'smooth'
     });
   }
+
+  requestAnimationFrame(() => {
+        logo.classList.remove('homepage-scale');
+      });
 });
