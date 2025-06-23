@@ -5,7 +5,7 @@
   --primary-color: rgb(196, 164, 132);
   --accent-color: rgb(148, 117, 85);
   --light-color: rgb(228, 208, 191);
-  --cream-color: white;
+  --cream-color: rgb(255, 251, 244);
 }
 
 body {
@@ -28,8 +28,6 @@ body {
   -ms-user-select: none;     /* IE 10+ */
   user-select: none;         /* Standard syntax */
 }
-
-
 
 .contact-button:hover {
   background: var(--accent-color);
@@ -94,6 +92,9 @@ body {
   .logo {
     display: flex;
     justify-content: center;
+    z-index: 1099;
+    background-color: rgb(255, 253, 208);
+    padding: 0 5px;
   }
   
   .logo img {
@@ -122,7 +123,7 @@ body {
   .menu {
     display: flex;
     gap: 20px;
-    padding: 10px 20px;
+    padding: 14px 20px;
     background-color: #444;
     -webkit-tap-highlight-color: transparent;
   }
@@ -242,9 +243,7 @@ body {
     .burger {
       display: flex;
     }
-    .logo img {
-      height: 50px;
-    }
+
     .menu {
       position: fixed;
       top: 0;

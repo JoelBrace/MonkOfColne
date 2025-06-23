@@ -6,6 +6,7 @@ const carouselItems = document.querySelectorAll('.carousel-item');
 const dotsContainer = document.getElementById('carousel-dots');
 let currentIndex = 0;
 const totalItems = carouselItems.length;
+var slideSwapTime = 6500;
 
 function createDots() {
   dotsContainer.innerHTML = '';
@@ -17,7 +18,7 @@ function createDots() {
     dot.addEventListener('pointerdown', function() {
       clearInterval(slideInterval);
       showSlide(parseInt(this.getAttribute('data-index')));
-      slideInterval = setInterval(nextSlide, 5000);
+      slideInterval = setInterval(nextSlide, slideSwapTime);
     });
     dotsContainer.appendChild(dot);
   }
@@ -57,7 +58,7 @@ window.addEventListener('scroll', function() {
 });
 
 createDots();
-let slideInterval = setInterval(nextSlide, 5000);
+let slideInterval = setInterval(nextSlide, slideSwapTime);
 
 let startX = null;
 carousel.addEventListener('touchstart', function(e) {
@@ -71,7 +72,7 @@ carousel.addEventListener('touchend', function(e) {
     clearInterval(slideInterval);
     if (diffX < 0) { nextSlide(); }
     else { prevSlide(); }
-    slideInterval = setInterval(nextSlide, 5000);
+    slideInterval = setInterval(nextSlide, slideSwapTime);
   }
   startX = null;
 }, { passive: true });

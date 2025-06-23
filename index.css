@@ -16,6 +16,8 @@
   margin-bottom: 40px;
 }
 
+
+
 .content > div {
   padding: 20px;
 }
@@ -104,7 +106,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: 80px 0;
+  padding: 60px 0;
   color: #fff;
   background: #333 url('welcometomonk.jpg') center/cover no-repeat;
   overflow: hidden;
@@ -134,6 +136,33 @@
   font-size: 18px;
   line-height: 1.4;
   width: 80%;
+  padding: 20px;
+}
+
+
+.headline-tuple {
+  display: flex;
+  position: relative;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.tuple-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tuple-title {
+  font-size: 20px;
+}
+
+.tuple-subtitle {
+  font-size: 16px;
+  text-align: center;
 }
   
   .contact-section {
@@ -310,7 +339,12 @@
     }
 
     .headline {
-      padding: 40px 0;
+      padding: 30px 0;
+    }
+
+    .headline-tuple {
+      flex-direction: column;
+      gap:20px;
     }
   }
   
