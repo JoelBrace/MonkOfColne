@@ -96,6 +96,7 @@ body {
     background-color: rgb(255, 253, 208);
     padding: 0 5px;
     transform-origin: top left;
+    opacity: 0;
   }
 
   .logo img {

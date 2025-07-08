@@ -222,6 +222,7 @@ window.addEventListener('load', () => {
   var padding = window.innerWidth > 768 ? 200 : 0;
   
   logo.style.transformOrigin = 'top left';
+  logo.style.opacity = '1';
 
   logoOverlay.style.opacity = '0';
 
