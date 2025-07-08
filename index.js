@@ -225,8 +225,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
   logoOverlay.style.opacity = '0';
 
-  const vW          = window.innerWidth;
-  const vH          = window.innerHeight;
+  const getVW = () =>
+  window.visualViewport?.width ||
+  document.documentElement.clientWidth ||
+  window.innerWidth;
+
+  const getVH = () =>
+  window.visualViewport?.height ||
+  document.documentElement.clientHeight ||
+  window.innerHeight;
+
+  const vW = getVW();
+  const vH = getVH();
 
   const naturalBox  = logo.getBoundingClientRect();
   const naturalW    = naturalBox.width;
