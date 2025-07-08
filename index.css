@@ -448,6 +448,19 @@
   background: var(--light-color);
 }
 
+#logo-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 101vw;
+  height: 100vh;
+  background: rgb(255, 253, 208);
+  z-index: 1052;
+  opacity: 1;
+  pointer-events: none; 
+  transition: opacity 1250ms ease 750ms;
+}
+
   
   @media (max-width: 768px) {
     .carousel {

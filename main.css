@@ -157,7 +157,7 @@ body {
     right: 12px;
     position: relative;
     cursor: pointer;
-    z-index: 1100;
+    z-index: 1051;
     outline: none;
     -webkit-tap-highlight-color: transparent;
   }

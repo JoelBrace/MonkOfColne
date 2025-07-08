@@ -198,33 +198,61 @@ document.getElementById('contactButton').addEventListener('click', function() {
   document.getElementById('quotes-carousel').scrollIntoView({ behavior: 'smooth' });
 });
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {         
   const logo = document.getElementById('logoBox');
+  const logoOverlay = document.getElementById('logo-overlay');
 
-  if (window.location.hash === '#contact-us') {
+
+  if (sessionStorage.getItem('logoAnimated')) {
+    // immediately remove overlay so page shows normally
+    logoOverlay.remove();
+    return;
+  }
+  // mark that we've now done it
+  sessionStorage.setItem('logoAnimated', 'true');
+
+  if (location.hash === '#contact-us') {
+    logoOverlay.remove();
     logo.style.transition = 'none';
-    logo.style.transform    = 'scale(1)';
-    document.getElementById('quotes-carousel').scrollIntoView({ behavior: 'smooth' });
+    logo.style.transform  = 'scale(1)';
+    document.getElementById('quotes-carousel')
+            .scrollIntoView({ behaviour: 'smooth' });
     return;
   }
 
-  logo.style.transform    = 'scale(1)';
-  logo.style.transition   = 'none';            // disable transitions for the jump
 
-  const container       = logo.parentElement;
-  const availableWidth  = container.clientWidth - 40;
-  const naturalWidth    = logo.getBoundingClientRect().width;
-  var scaleFactor     = availableWidth / naturalWidth;
+  var padding = window.innerWidth > 768 ? 200 : 0;
+  
+  logo.style.transformOrigin = 'top left';
 
-  if(container.clientWidth > 768)
-    scaleFactor = scaleFactor/2.0;
+  logoOverlay.style.opacity = '0';
 
-  logo.style.transform  = `scale(${scaleFactor})`;
+  const vW          = window.innerWidth;
+  const vH          = window.innerHeight;
+
+  const naturalBox  = logo.getBoundingClientRect();
+  const naturalW    = naturalBox.width;
+  const naturalH    = naturalBox.height;
+
+  const maxLogoW    = vW - 2 * padding;
+  const scaleFactor = maxLogoW / naturalW;
+
+  const scaledW     = naturalW * scaleFactor;
+  const scaledH     = naturalH * scaleFactor;
+
+  const startLeft   = naturalBox.left;
+  const startTop    = naturalBox.top;
+
+  const translateX  = (vW - scaledW) / 2 - startLeft;
+  const translateY  = (vH - scaledH) / 2 - startTop;
+
+  logo.style.transform =
+    `translate(${translateX}px, ${translateY}px) scale(${scaleFactor})`;
 
   void logo.offsetWidth;
 
   logo.style.transition = 'transform 1250ms ease 750ms';
   requestAnimationFrame(() => {
-    logo.style.transform = 'scale(1)';
+    logo.style.transform = 'translate(0, 0) scale(1)';
   });
 });
