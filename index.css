@@ -448,6 +448,10 @@
   background: var(--light-color);
 }
 
+.logo {
+  opacity: 0;
+}
+
 #logo-overlay {
   position: fixed;
   top: 0;
