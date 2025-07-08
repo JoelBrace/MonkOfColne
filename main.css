@@ -102,6 +102,7 @@ body {
   .logo img {
     height: 100px;
     z-index: 1100;
+    filter: invert(14%) sepia(47%) saturate(499%) hue-rotate(328deg) brightness(98%) contrast(86%);;
   }
 
 .ready-heading {
