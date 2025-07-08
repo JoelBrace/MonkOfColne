@@ -198,7 +198,7 @@ document.getElementById('contactButton').addEventListener('click', function() {
   document.getElementById('quotes-carousel').scrollIntoView({ behavior: 'smooth' });
 });
 
-window.addEventListener('DOMContentLoaded', () => {         
+window.addEventListener('load', () => {         
   const logo = document.getElementById('logoBox');
   const logoOverlay = document.getElementById('logo-overlay');
 
