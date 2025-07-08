@@ -203,13 +203,11 @@ window.addEventListener('DOMContentLoaded', () => {
   const logoOverlay = document.getElementById('logo-overlay');
 
 
-  if (sessionStorage.getItem('logoAnimated')) {
-    // immediately remove overlay so page shows normally
-    logoOverlay.remove();
-    return;
-  }
-  // mark that we've now done it
-  sessionStorage.setItem('logoAnimated', 'true');
+  // if (sessionStorage.getItem('logoAnimated')) {
+  //   logoOverlay.remove();
+  //   return;
+  // }
+  // sessionStorage.setItem('logoAnimated', 'true');
 
   if (location.hash === '#contact-us') {
     logoOverlay.remove();
