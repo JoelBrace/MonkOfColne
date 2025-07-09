@@ -201,6 +201,7 @@ document.getElementById('contactButton').addEventListener('click', function() {
 window.addEventListener('load', () => {         
   const logo = document.getElementById('logoBox');
   const logoOverlay = document.getElementById('logo-overlay');
+  const logoImg = document.querySelector('.logo > img');
 
 
   // if (sessionStorage.getItem('logoAnimated')) {
@@ -222,7 +223,7 @@ window.addEventListener('load', () => {
   var padding = window.innerWidth > 768 ? 200 : 0;
   
   logo.style.transformOrigin = 'top left';
-  logo.style.opacity = '1';
+  logoImg.style.opacity = '1';
 
   logoOverlay.style.opacity = '0';
 

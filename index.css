@@ -448,8 +448,9 @@
   background: var(--light-color);
 }
 
-.logo {
+.logo > img {
   opacity: 0;
+  transition: opacity 400ms ease-in-out;
 }
 
 #logo-overlay {
