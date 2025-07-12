@@ -1,0 +1,15 @@
+Finish About Us page:
+    Get images of people working.
+    Add quality assurance.
+    add any text from the existing site for writing the about us page.
+    add something to make it obvious to see quality assurance on homepage.
+
+Fix carousel to work with desktop images.
+
+Update services pages to include 'points' that are re-written to be specific to each service.
+
+fix contact us not scrolling when clicked.
+
+Add gallery to each services page.
+
+Projects

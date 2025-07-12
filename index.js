@@ -203,6 +203,7 @@ window.addEventListener('load', () => {
   const logoOverlay = document.getElementById('logo-overlay');
   const logoImg = document.querySelector('.logo > img');
 
+  logoImg.style.opacity = '1';
 
   // if (sessionStorage.getItem('logoAnimated')) {
   //   logoOverlay.remove();
@@ -223,7 +224,7 @@ window.addEventListener('load', () => {
   var padding = window.innerWidth > 768 ? 200 : 0;
   
   logo.style.transformOrigin = 'top left';
-  logoImg.style.opacity = '1';
+ 
 
   logoOverlay.style.opacity = '0';
 
