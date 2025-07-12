@@ -5,6 +5,7 @@ Finish About Us page:
     add something to make it obvious to see quality assurance on homepage.
 
 Fix carousel to work with desktop images.
+downscale images.
 
 Update services pages to include 'points' that are re-written to be specific to each service.
 
