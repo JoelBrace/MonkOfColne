@@ -198,18 +198,30 @@ document.getElementById('contactButton').addEventListener('click', function() {
   document.getElementById('quotes-carousel').scrollIntoView({ behavior: 'smooth' });
 });
 
-window.addEventListener('load', () => {         
+window.addEventListener('load', () => {    
+  const firstSlide = document.querySelector('.carousel-item');
+  if (firstSlide) firstSlide.classList.add('active');
+  
   const logo = document.getElementById('logoBox');
   const logoOverlay = document.getElementById('logo-overlay');
   const logoImg = document.querySelector('.logo > img');
 
   logoImg.style.opacity = '1';
 
-  // if (sessionStorage.getItem('logoAnimated')) {
-  //   logoOverlay.remove();
-  //   return;
-  // }
-  // sessionStorage.setItem('logoAnimated', 'true');
+  if (location.hash === '#contact-us') {
+    logoOverlay.remove();
+    logo.style.transition = 'none';
+    logo.style.transform  = 'scale(1)';
+    document.getElementById('quotes-carousel')
+            .scrollIntoView({ behaviour: 'smooth' });
+    return;
+  }
+
+  if (sessionStorage.getItem('logoAnimated')) {
+    logoOverlay.remove();
+    return;
+  }
+  sessionStorage.setItem('logoAnimated', 'true');
 
   if (location.hash === '#contact-us') {
     logoOverlay.remove();
