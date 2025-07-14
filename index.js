@@ -234,11 +234,11 @@ window.addEventListener('load', () => {
     return;
   }
 
-  if (sessionStorage.getItem('logoAnimated')) {
-    logoOverlay.remove();
-    return;
-  }
-  sessionStorage.setItem('logoAnimated', 'true');
+  // if (sessionStorage.getItem('logoAnimated')) {
+  //   logoOverlay.remove();
+  //   return;
+  // }
+  // sessionStorage.setItem('logoAnimated', 'true');
 
   if (location.hash === '#contact-us') {
     logoOverlay.remove();
