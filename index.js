@@ -8,6 +8,16 @@ let currentIndex = 0;
 const totalItems = carouselItems.length;
 var slideSwapTime = 6500;
 
+function applyBg(item) {
+  if (item.dataset.bgLoaded) return;
+  const isMobile = window.innerWidth <= 768;
+  const img = isMobile
+    ? item.dataset.mobileImage
+    : item.dataset.desktopImage;
+  item.style.backgroundImage = img;
+  item.dataset.bgLoaded = 'true';
+}
+
 function createDots() {
   dotsContainer.innerHTML = '';
   for (let i = 0; i < totalItems; i++) {
@@ -29,9 +39,13 @@ function showSlide(index) {
   setTimeout(() => {
     carouselItems[currentIndex].classList.remove('active');
     dotsContainer.children[currentIndex].classList.remove('active');
+
     currentIndex = index;
-    carouselItems[currentIndex].classList.add('active');
-    carouselItems[currentIndex].style.backgroundPositionY = getYOffset();
+
+    const slide = carouselItems[currentIndex];
+    applyBg(slide);
+    slide.style.backgroundPositionY = getYOffset();
+    slide.classList.add('active');
     dotsContainer.children[currentIndex].classList.add('active');
   }, 150);
   setTimeout(() => { carousel.classList.remove('blur'); }, 300);
@@ -200,7 +214,10 @@ document.getElementById('contactButton').addEventListener('click', function() {
 
 window.addEventListener('load', () => {    
   const firstSlide = document.querySelector('.carousel-item');
-  if (firstSlide) firstSlide.classList.add('active');
+  if (firstSlide){
+    applyBg(firstSlide);
+    firstSlide.classList.add('active');
+  }
   
   const logo = document.getElementById('logoBox');
   const logoOverlay = document.getElementById('logo-overlay');
