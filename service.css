@@ -65,7 +65,7 @@
 }
 
 .point {
-    width: 280px;
+    max-width: 280px;
     background-color: var(--light-color);
     padding: 20px;
 }
@@ -74,6 +74,10 @@
 
   .content {
     margin: 20px;
+  }
+
+  .point {
+    max-width: none;
   }
 
   .main-description {
