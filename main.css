@@ -13,6 +13,11 @@ body {
   color: rgb(92, 60, 27);
 }
 
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
 .contact-button {
   background: var(--primary-color);
   padding: 20px;
@@ -246,6 +251,10 @@ body {
   @media (max-width: 768px) {
     .burger {
       display: flex;
+    }
+
+    .navbar {
+      align-items: unset; 
     }
 
     .logo img {
