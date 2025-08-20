@@ -7,6 +7,7 @@
 }
 
 :root {
+  --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
@@ -51,14 +52,13 @@ img, svg, video {
 
 /* ---------- Media placeholders ---------- */
 .img-ph {
-  background: repeating-linear-gradient(45deg, rgba(0,0,0,0.06) 0 12px, rgba(0,0,0,0.08) 12px 24px);
-  border: 1px dashed rgba(0,0,0,0.25);
   border-radius: 0;              /* Sharp aesthetic */
   box-shadow: var(--shadow-soft);
 }
-.ratio-21x9 { aspect-ratio: 21 / 9;  }
+.ratio-21x9 { aspect-ratio: auto;  }
 .ratio-4x3  { aspect-ratio: 4 / 3;  }
 .ratio-3x2  { aspect-ratio: 3 / 2;   }
+.ratio-2x3  { aspect-ratio: 2 / 3;   }
 .ratio-1x1  { aspect-ratio: 1 / 1;   }
 
 /* ---------- Type & hierarchy ---------- */
@@ -90,6 +90,10 @@ img, svg, video {
   line-height: 1.6;
   max-width: 65ch;
   margin:0;
+}
+
+figure {
+  margin: 0;
 }
 
 /* ---------- Hero ---------- */
@@ -134,11 +138,17 @@ img, svg, video {
   gap: var(--space-2);
 }
 
+.fig-cap {
+  padding: var(--space-1) var(--space-2);
+  font-size: 0.75rem;
+}
+
 /* ---------- Why choose ---------- */
 .why-grid {
   display: grid;
   gap: var(--space-8);
   align-items: start;
+  justify-items: center;
 }
 .tick-list {
   list-style: none;
@@ -158,6 +168,7 @@ img, svg, video {
   top: 0;
   color: var(--primary-color);
 }
+
 
 /* ---------- Commitment ---------- */
 .commitment-grid {
@@ -191,10 +202,15 @@ img, svg, video {
   .container {
     padding-top: 180px;
   }
+  .ratio-21x9 {
+    aspect-ratio: 21 / 9;
+  }
   .about-hero { grid-template-columns: 1.25fr minmax(0, 1fr); align-items: end; }
   .about-intro .intro-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .why-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .what-columns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .commitment-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .page-title { font-size: 3rem; }
+
+
 }
